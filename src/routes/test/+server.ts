@@ -3,34 +3,45 @@ import { createCanvas, type SKRSContext2D } from '@napi-rs/canvas';
 
 export const GET = (async ({ url }) => {
 
-    const title = url.searchParams.get('title') || 'Some text here';
+    const title = url.searchParams.get('title') || 'Some text here boy you man jennifer supper farter';
     const username = url.searchParams.get('username') || 'elonmusk';
 
     const canvas = createCanvas(1200, 675);
     const ctx = canvas.getContext('2d');
 
     // Set the style for the title
-    ctx.font = "bold 108px Arial";
+    ctx.font = "bold 132px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
 
-    const maxWidth: number = 800; // Max width of the text block
-    const lineHeight: number = 135; // Line height
-    const x: number = canvas.width / 2 + 40;
-    const y: number = 250; // Initial y position
+    // default 2 lines
+    const maxWidth = 800; // Max width of the text block
+    const lineHeight = 135; // Line height
+    const x = canvas.width / 2 + 40;
+    let y = 264; // Initial y position
+
+    const lines = numLines(ctx, title, maxWidth);
+
+    //console.log(lines)
+
+    if (lines === 1) {
+        ctx.font = "bold 150px Arial";
+        y = 360;
+    } else if (lines === 3) {
+        ctx.font = "bold 108px Arial";
+        y = 216;
+    } else if (lines > 4) {
+        ctx.font = "bold 96 Arial";
+        y = 196;
+    }
 
     wrapText(ctx, title, x, y, maxWidth, lineHeight);
 
-
     ctx.fillStyle = '#0369a1';
-    //ctx.fillRect(0, 0, canvas.width, 40);
-
     const borderWidth = 40; // Width of the border
     ctx.fillRect(0, 0, borderWidth, canvas.height); // Left border
-    //ctx.fillRect(canvas.width - borderWidth, 0, borderWidth, canvas.height); // Right border
 
     ctx.font = "bold 40px Arial";
-
     const customText1 = "</>";
     const customText2 = " Code.Build";
 
@@ -97,4 +108,25 @@ function wrapText(context: SKRSContext2D, text: string, x: number, y: number, ma
     }
     context.fillText(line, x, y); // Draw the last line
 }
+
+function numLines(context: SKRSContext2D, text: string, maxWidth: number): number {
+    const words: string[] = text.split(' ');
+    let line: string = '';
+    let lineCount: number = 1;
+
+    for (const word of words) {
+        const testLine: string = line + word + ' ';
+        const metrics: TextMetrics = context.measureText(testLine);
+        const testWidth: number = metrics.width;
+
+        if (testWidth > maxWidth && line !== '') {
+            line = word + ' ';
+            lineCount++;
+        } else {
+            line = testLine;
+        }
+    }
+    return lineCount;
+}
+
 
