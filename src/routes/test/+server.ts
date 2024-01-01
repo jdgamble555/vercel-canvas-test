@@ -25,16 +25,16 @@ export const GET = (async ({ url }) => {
     //console.log(lines)
 
     if (lines === 1) {
-        ctx.font = "bold 150px Arial";
+        ctx.font = "150px Arial";
         y = 360;
     } else if (lines === 3) {
-        ctx.font = "bold 108px Arial";
+        ctx.font = "108px Arial";
         y = 216;
     } else if (lines === 4) {
-        ctx.font = "bold 96 Arial";
+        ctx.font = "96 Arial";
         y = 196;
     } else if (lines > 4) {
-        ctx.font = "bold 84 Arial";
+        ctx.font = "84 Arial";
         y = 184;
     }
 
