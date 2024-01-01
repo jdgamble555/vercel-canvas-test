@@ -1,16 +1,12 @@
 import { type RequestHandler } from "@sveltejs/kit";
-import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
-
-console.log(GlobalFonts.families)
-
-// @ts-expect-error - path on Vercel
-import path from 'path';
+import { createCanvas, registerFont } from 'canvas';
 
 //import arialFont from '@canvas-fonts/arial';
 
-//registerFont(path.resolve('./static/Arial.ttf'), { family: "Arial " });
+//const arialFont = await fetch('https://vercel-canvas-test-two.vercel.app/Arial.ttf').then((r) => r.text());
 
-//GlobalFonts.registerFromPath(path.resolve('./static/Arial.ttf'));
+registerFont('./Arial.ttf', { family: "Arial " });
+
 
 export const GET = (async () => {
 
@@ -42,3 +38,4 @@ export const GET = (async () => {
     });
 
 }) satisfies RequestHandler;
+
