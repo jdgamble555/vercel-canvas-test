@@ -10,7 +10,7 @@ export const GET = (async () => {
     ctx.font = "72px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
-    ctx.fillText("Code.Build", canvas.width / 2, canvas.height / 2 - 20);
+    ctx.fillText("Code.Build" + (Math.random() + 1).toString(36).substring(7), canvas.width / 2, canvas.height / 2 - 20);
 
     ctx.fillStyle = '#0369a1';
     ctx.fillRect(0, 0, canvas.width, 40);
