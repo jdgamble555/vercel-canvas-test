@@ -16,8 +16,8 @@ export const GET = (async ({ url }) => {
 
     const maxWidth: number = 800; // Max width of the text block
     const lineHeight: number = 135; // Line height
-    const x: number = canvas.width / 2;
-    const y: number = 180; // Initial y position
+    const x: number = canvas.width / 2 + 40;
+    const y: number = 250; // Initial y position
 
     wrapText(ctx, title, x, y, maxWidth, lineHeight);
 
