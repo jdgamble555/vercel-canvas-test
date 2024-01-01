@@ -10,7 +10,7 @@ export const GET = (async ({ url }) => {
     const ctx = canvas.getContext('2d');
 
     // Set the style for the title
-    ctx.font = "bold 132px Arial";
+    ctx.font = "bold 120px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
 
@@ -25,16 +25,16 @@ export const GET = (async ({ url }) => {
     //console.log(lines)
 
     if (lines === 1) {
-        ctx.font = "150px Arial";
+        ctx.font = "bold 144px Arial";
         y = 360;
     } else if (lines === 3) {
-        ctx.font = "108px Arial";
+        ctx.font = "bold 96px Arial";
         y = 216;
     } else if (lines === 4) {
-        ctx.font = "96 Arial";
+        ctx.font = "bold 84 Arial";
         y = 196;
     } else if (lines > 4) {
-        ctx.font = "84 Arial";
+        ctx.font = "bold 72 Arial";
         y = 184;
     }
 
