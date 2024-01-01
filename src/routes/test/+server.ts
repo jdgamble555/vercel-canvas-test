@@ -3,7 +3,7 @@ import { createCanvas, type SKRSContext2D } from '@napi-rs/canvas';
 
 export const GET = (async ({ url }) => {
 
-    const title = url.searchParams.get('title') || 'Some text here boy you man jennifer supper farter';
+    const title = url.searchParams.get('title') || 'Building a Scalable Follower Feed with Firestore';
     const username = url.searchParams.get('username') || 'elonmusk';
 
     const canvas = createCanvas(1200, 675);
@@ -17,7 +17,7 @@ export const GET = (async ({ url }) => {
     // default 2 lines
     const maxWidth = 800; // Max width of the text block
     const lineHeight = 135; // Line height
-    const x = canvas.width / 2 + 40;
+    const x = canvas.width / 2 + 36;
     let y = 264; // Initial y position
 
     const lines = numLines(ctx, title, maxWidth);
@@ -30,9 +30,12 @@ export const GET = (async ({ url }) => {
     } else if (lines === 3) {
         ctx.font = "bold 108px Arial";
         y = 216;
-    } else if (lines > 4) {
+    } else if (lines === 4) {
         ctx.font = "bold 96 Arial";
         y = 196;
+    } else if (lines > 4) {
+        ctx.font = "bold 84 Arial";
+        y = 184;
     }
 
     wrapText(ctx, title, x, y, maxWidth, lineHeight);
@@ -42,8 +45,8 @@ export const GET = (async ({ url }) => {
     ctx.fillRect(0, 0, borderWidth, canvas.height); // Left border
 
     ctx.font = "bold 40px Arial";
-    const customText1 = "</>";
-    const customText2 = " Code.Build";
+    const customText1 = "</>  ";
+    const customText2 = "Code.Build";
 
     // Measure the width of each part of the text
     const customText1Width = ctx.measureText(customText1).width;
