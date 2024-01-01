@@ -1,9 +1,14 @@
 import { type RequestHandler } from "@sveltejs/kit";
-import { createCanvas } from '@napi-rs/canvas';
+import { createCanvas, GlobalFonts } from '@napi-rs/canvas';
+
+// @ts-expect-error - path on Vercel
+import path from 'path';
 
 //import arialFont from '@canvas-fonts/arial';
 
 //registerFont(path.resolve('./static/Arial.ttf'), { family: "Arial " });
+
+GlobalFonts.registerFromPath(path.resolve('./static/Arial.ttf'));
 
 export const GET = (async () => {
 
