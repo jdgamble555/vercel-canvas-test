@@ -1,9 +1,9 @@
 import { type RequestHandler } from "@sveltejs/kit";
-import { createCanvas, registerFont } from 'canvas';
+import { createCanvas } from '@napi-rs/canvas';
 
 //import arialFont from '@canvas-fonts/arial';
 
-registerFont('./Arial.ttf', { family: "Arial " });
+//registerFont('./Arial.ttf', { family: "Arial " });
 
 export const GET = (async () => {
 
