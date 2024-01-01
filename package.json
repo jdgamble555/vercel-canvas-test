@@ -5,7 +5,6 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"now-build": "yum install libuuid-devel libmount-devel && cp /lib64/{libuuid,libmount,libblkid}.so.1 node_modules/canvas/build/Release/ && npm run build",
 		"preview": "vite preview",
 		"test": "npm run test:integration && npm run test:unit",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
