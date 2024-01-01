@@ -1,9 +1,10 @@
 import { type RequestHandler } from "@sveltejs/kit";
-import { createCanvas } from 'canvas';
+import { createCanvas, registerFont } from 'canvas';
+import path from 'path';
 
 //import arialFont from '@canvas-fonts/arial';
 
-//registerFont('./Arial.ttf', { family: "Arial " });
+registerFont(path.resolve('./static/Arial.ttf'), { family: "Arial " });
 
 export const GET = (async () => {
 
@@ -11,7 +12,7 @@ export const GET = (async () => {
     const ctx = canvas.getContext('2d');
 
     // Set the style for the title
-    //ctx.font = "72px Arial";
+    ctx.font = "72px Arial";
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Code.Build" + (Math.random() + 1).toString(36).substring(7), canvas.width / 2, canvas.height / 2 - 20);
