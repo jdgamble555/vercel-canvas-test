@@ -3,7 +3,7 @@ import { createCanvas, registerFont } from 'canvas';
 
 //import arialFont from '@canvas-fonts/arial';
 
-registerFont('./static/Arial.ttf', { family: "Arial " });
+registerFont('./Arial.ttf', { family: "Arial " });
 
 export const GET = (async () => {
 
