@@ -1,5 +1,7 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { createCanvas, registerFont } from 'canvas';
+
+// @ts-expect-error - path on Vercel
 import path from 'path';
 
 //import arialFont from '@canvas-fonts/arial';
