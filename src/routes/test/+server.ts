@@ -5,7 +5,7 @@ import { createCanvas, registerFont } from 'canvas';
 
 //const arialFont = await fetch('https://vercel-canvas-test-two.vercel.app/Arial.ttf').then((r) => r.text());
 
-registerFont('./Arial.ttf', { family: "Arial " });
+registerFont('./static/Arial.ttf', { family: "Arial " });
 
 
 export const GET = (async () => {
