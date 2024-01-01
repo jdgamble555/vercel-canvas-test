@@ -1,12 +1,6 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { createCanvas } from '@napi-rs/canvas';
 
-//import arialFont from '@canvas-fonts/arial';
-
-//const arialFont = await fetch('https://vercel-canvas-test-two.vercel.app/Arial.ttf').then((r) => r.text());
-
-//registerFont('Arial.ttf', { family: "Arial " });
-
 export const GET = (async () => {
 
     const canvas = createCanvas(1200, 800);
