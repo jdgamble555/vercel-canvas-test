@@ -7,7 +7,6 @@ import { createCanvas } from '@napi-rs/canvas';
 
 //registerFont('Arial.ttf', { family: "Arial " });
 
-
 export const GET = (async () => {
 
     const canvas = createCanvas(1200, 800);
