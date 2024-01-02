@@ -1,7 +1,10 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { createCanvas, type SKRSContext2D } from '@napi-rs/canvas';
 
+const font_face = ' Verdana';
+
 export const GET = (async ({ url }) => {
+
 
     const title = url.searchParams.get('title') || 'Building a Scalable Follower Feed with Firestore';
     const username = url.searchParams.get('username') || 'elonmusk';
@@ -13,31 +16,34 @@ export const GET = (async ({ url }) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Set the style for the title
-    ctx.font = "bold 120px Arial";
+    ctx.font = "bold 120px" + font_face;
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
 
     // default 2 lines
     const maxWidth = 800; // Max width of the text block
     const lineHeight = 135; // Line height
-    const x = canvas.width / 2 + 36;
-    let y = 264; // Initial y position
+    const x = canvas.width / 2 + 30;
+    let y = 0; // Initial y position
 
     const lines = numLines(ctx, title, maxWidth);
 
     //console.log(lines)
 
     if (lines === 1) {
-        ctx.font = "bold 144px Arial";
+        ctx.font = "bold 144px" + font_face;
         y = 360;
+    } else if (lines === 2) {
+        ctx.font = "bold 120px" + font_face;
+        y = 264;
     } else if (lines === 3) {
-        ctx.font = "bold 96px Arial";
+        ctx.font = "bold 96px" + font_face;
         y = 216;
     } else if (lines === 4) {
-        ctx.font = "bold 84 Arial";
+        ctx.font = "bold 84px" + font_face;
         y = 196;
     } else if (lines > 4) {
-        ctx.font = "bold 72 Arial";
+        ctx.font = "bold 72px" + font_face;
         y = 184;
     }
 
@@ -47,7 +53,7 @@ export const GET = (async ({ url }) => {
     const borderWidth = 40; // Width of the border
     ctx.fillRect(0, 0, borderWidth, canvas.height); // Left border
 
-    ctx.font = "bold 40px Arial";
+    ctx.font = "bold 40px" + font_face;
     const customText1 = "</>  ";
     const customText2 = "Code.Build";
 
@@ -56,7 +62,7 @@ export const GET = (async ({ url }) => {
     const customText2Width = ctx.measureText(customText2).width;
 
     // Define the border width or padding from the right edge
-    const paddingRight = 120; // Adjust this value as needed
+    const paddingRight = 80; // Adjust this value as needed
 
     // Calculate the total width of both text segments and the center position for the combined text
     const totalWidth = customText1Width + customText2Width;
@@ -77,7 +83,7 @@ export const GET = (async ({ url }) => {
 
 
     const customText3 = "@" + username;
-    ctx.font = "bold 40px Arial"; // Font style for custom text
+    ctx.font = "bold 40px" + font_face; // Font style for custom text
     ctx.fillStyle = "black"; // Text color
     const textX3 = 250; // Position from right
     const textY3 = canvas.height - 40; // Position from bottom
