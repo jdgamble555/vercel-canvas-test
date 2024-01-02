@@ -9,6 +9,9 @@ export const GET = (async ({ url }) => {
     const canvas = createCanvas(1200, 675);
     const ctx = canvas.getContext('2d');
 
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
     // Set the style for the title
     ctx.font = "bold 120px Arial";
     ctx.textAlign = "center";
