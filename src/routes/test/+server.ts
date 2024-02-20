@@ -3,11 +3,15 @@ import { createCanvas, type SKRSContext2D } from '@napi-rs/canvas';
 
 const font_face = ' Verdana';
 
+// 1200 x 675 - 16x9
+// 1200 x 1200 - 1x1 - google feature image
+// 1200 x 900 - 4x3
+
 export const GET = (async ({ url }) => {
 
 
-    const title = url.searchParams.get('title') || 'Building a Scalable Follower Feed with Firestore';
-    const username = url.searchParams.get('username') || 'elonmusk';
+    const title = url.searchParams.get('title') || 'Firestore';
+    const username = url.searchParams.get('username') || 'jdgamble555';
 
     const canvas = createCanvas(1200, 675);
     const ctx = canvas.getContext('2d');
@@ -15,6 +19,7 @@ export const GET = (async ({ url }) => {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    
     // Set the style for the title
     ctx.font = "bold 120px" + font_face;
     ctx.textAlign = "center";
@@ -49,7 +54,7 @@ export const GET = (async ({ url }) => {
 
     wrapText(ctx, title, x, y, maxWidth, lineHeight);
 
-    ctx.fillStyle = '#0369a1';
+    ctx.fillStyle = '#f59e0b';
     const borderWidth = 40; // Width of the border
     ctx.fillRect(0, 0, borderWidth, canvas.height); // Left border
 
