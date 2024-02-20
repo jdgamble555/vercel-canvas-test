@@ -1,7 +1,7 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
-GlobalFonts.registerFromPath('./Arial.ttf', 'Arial');
+//GlobalFonts.registerFromPath('./Arial.ttf', 'Arial');
 
 console.info(GlobalFonts.families);
 
@@ -54,7 +54,7 @@ const svgImage = `
 		y="54%"
 		dominant-baseline="middle"
 		text-anchor="middle"
-		font-family="Arial"
+		font-family="DejaVu Sans"
 		font-size="150"
 		fill="white">Follow</text>		
 </svg>
