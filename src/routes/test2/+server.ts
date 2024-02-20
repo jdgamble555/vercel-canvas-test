@@ -1,13 +1,7 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
-
-import Arial from '../../../static/Arial.ttf?inline';
-
-GlobalFonts.registerFromPath(Arial, 'Arial');
-
-// DejaVu Sans - works on Vercel
-
-console.info(GlobalFonts.families);
+import { read } from '$app/server';
+import Arial from '$lib/Arial.ttf';
 
 const svgImage = `
 <svg
@@ -70,25 +64,33 @@ const svgImage = `
 
 export const GET = (async () => {
 
-    const canvas = createCanvas(1200, 675);
-    const ctx = canvas.getContext('2d');
+	//const fontData = await read(Arial).arrayBuffer();
 
-    const encoder = new TextEncoder();
-    const svgBuffer = encoder.encode(svgImage);
+	GlobalFonts.registerFromPath(Arial, 'Arial');
 
-    const _svg = await loadImage(svgBuffer);
+	// DejaVu Sans - works on Vercel
 
-    ctx.drawImage(_svg, 0, 0);
+	console.info(GlobalFonts.families);
+
+	const canvas = createCanvas(1200, 675);
+	const ctx = canvas.getContext('2d');
+
+	const encoder = new TextEncoder();
+	const svgBuffer = encoder.encode(svgImage);
+
+	const _svg = await loadImage(svgBuffer);
+
+	ctx.drawImage(_svg, 0, 0);
 
 
-    const buffer = canvas.toBuffer('image/png');
+	const buffer = canvas.toBuffer('image/png');
 
-    return new Response(buffer, {
-        headers: {
-            'Content-Type': 'image/png',
-            'Content-Length': buffer.length.toString()
-        }
-    });
+	return new Response(buffer, {
+		headers: {
+			'Content-Type': 'image/png',
+			'Content-Length': buffer.length.toString()
+		}
+	});
 
 }) satisfies RequestHandler;
 
