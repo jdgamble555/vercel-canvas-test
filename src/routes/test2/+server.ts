@@ -64,9 +64,9 @@ const svgImage = `
 
 export const GET = (async () => {
 
-	//const fontData = await read(Arial).arrayBuffer();
+	const fontData = await read(Arial).arrayBuffer();
 
-	GlobalFonts.registerFromPath(Arial, 'Arial');
+	GlobalFonts.register(fontData, 'Arial');
 
 	// DejaVu Sans - works on Vercel
 
