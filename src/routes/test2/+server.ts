@@ -1,7 +1,7 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
-import NotoSans from '$lib/NotoSans-Regular.ttf';
+//import NotoSans from '$lib/NotoSans-Regular.ttf';
 import Arial from '$lib/Arial.ttf';
 
 
