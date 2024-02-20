@@ -2,6 +2,8 @@ import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
 import NotoSans from '$lib/NotoSans-Regular.ttf';
+import Arial from '$lib/Arial.ttf';
+
 
 const svgImage = `
 <svg
@@ -52,7 +54,7 @@ const svgImage = `
 		y="54%"
 		dominant-baseline="middle"
 		text-anchor="middle"
-		font-family="Noto Sans"
+		font-family="Arial"
 		font-size="150"
 		fill="white">Follow</text>		
 </svg>
@@ -65,9 +67,9 @@ const svgImage = `
 export const GET = (async () => {
 
 	/* @ts-expect-error - Buffer */
-	const fontData = Buffer.from(NotoSans);
+	const fontData = Buffer.from(Arial);
 
-	GlobalFonts.register(fontData, 'Noto Sans');
+	GlobalFonts.register(fontData, 'Arial');
 
 	// DejaVu Sans - works on Vercel
 
