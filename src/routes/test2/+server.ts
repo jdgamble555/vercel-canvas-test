@@ -1,7 +1,7 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
-GlobalFonts.registerFromPath('./Arial.ttf');
+GlobalFonts.registerFromPath('./Arial.ttf', 'Arial');
 
 console.log(GlobalFonts);
 
