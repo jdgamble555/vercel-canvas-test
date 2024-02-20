@@ -50,7 +50,7 @@ const svgImage = `
 		y="54%"
 		dominant-baseline="middle"
 		text-anchor="middle"
-		font-family="Arial"
+		font-family="Verdana"
 		font-size="150"
 		fill="white">Follow</text>		
 </svg>
