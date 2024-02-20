@@ -3,6 +3,8 @@ import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
 GlobalFonts.registerFromPath('./Arial.ttf');
 
+console.log(GlobalFonts);
+
 const svgImage = `
 <svg
 	style="height: auto; width: 100%;"
