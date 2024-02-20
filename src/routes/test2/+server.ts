@@ -1,7 +1,9 @@
 import { type RequestHandler } from "@sveltejs/kit";
 import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
-GlobalFonts.registerFromPath('./Arial.ttf', 'Arial');
+import Arial from '../../../static/Arial.ttf?inline';
+
+GlobalFonts.registerFromPath(Arial, 'Arial');
 
 // DejaVu Sans - works on Vercel
 
