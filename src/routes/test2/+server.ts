@@ -3,7 +3,7 @@ import { GlobalFonts, createCanvas, loadImage } from '@napi-rs/canvas';
 
 GlobalFonts.registerFromPath('./Arial.ttf', 'Arial');
 
-console.log(GlobalFonts);
+console.info(GlobalFonts.families);
 
 const svgImage = `
 <svg
