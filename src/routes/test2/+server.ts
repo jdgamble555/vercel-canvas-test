@@ -64,8 +64,8 @@ const svgImage = `
 
 export const GET = (async () => {
 
+	/* @ts-expect-error - Buffer */
 	const fontData = Buffer.from(NotoSans);
-
 
 	GlobalFonts.register(fontData, 'Noto Sans');
 
